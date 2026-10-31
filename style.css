@@ -1,0 +1,356 @@
+
+/* =========================================
+   1. GLOBAL SETTINGS
+========================================= */
+
+:root {
+    --primary: #A8D5F2;
+    --primary-dark: #659CC5;
+    --light-blue: #EFF7FD;
+    --soft-blue: #DCEFFC;
+
+    --white: #FFFFFF;
+    --text: #34495E;
+    --muted: #8193A5;
+    --border: #E3EDF5;
+
+    --shadow: 0 8px 25px rgba(90, 140, 180, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--white);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   2. HEADER & NAVIGATION
+========================================= */
+
+header {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.96);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    padding: 18px 8%;
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+
+.logo {
+    text-decoration: none;
+    color: var(--primary-dark);
+
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text);
+
+    font-size: 13px;
+    font-weight: 500;
+
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-dark);
+}
+
+
+/* =========================================
+   3. GENERAL SECTION SETTINGS
+========================================= */
+
+section {
+    padding: 100px 10%;
+    scroll-margin-top: 75px;
+}
+
+.section-heading {
+    margin-bottom: 30px;
+}
+
+.section-label {
+    color: var(--primary-dark);
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+}
+
+section h2 {
+    color: var(--text);
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.section-description {
+    color: var(--muted);
+    max-width: 700px;
+}
+
+
+/* =========================================
+   4. HOME SECTION
+========================================= */
+
+.home-section {
+    min-height: 85vh;
+
+    display: flex;
+    align-items: center;
+
+    background: linear-gradient(
+        120deg,
+        #EFF7FD 0%,
+        #FFFFFF 100%
+    );
+}
+
+.home-content {
+    max-width: 750px;
+}
+
+.home-content h1 {
+    color: var(--text);
+
+    font-size: clamp(42px, 6vw, 68px);
+    line-height: 1.2;
+
+    margin-bottom: 20px;
+}
+
+.home-description {
+    color: var(--muted);
+    font-size: 17px;
+
+    max-width: 650px;
+}
+
+
+/* =========================================
+   5. PROFILE SECTION
+========================================= */
+
+.profile-section {
+    background-color: var(--white);
+}
+
+.profile-content {
+    display: flex;
+    align-items: center;
+    gap: 45px;
+}
+
+.profile-photo {
+    width: 220px;
+    height: 260px;
+
+    flex-shrink: 0;
+
+    background-color: var(--light-blue);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.profile-description {
+    max-width: 600px;
+}
+
+.profile-description h3 {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.profile-description p {
+    color: var(--muted);
+}
+
+
+/* =========================================
+   6. LEARNING SECTION
+========================================= */
+
+.learning-section {
+    background-color: #F7FBFF;
+}
+
+.content-list {
+    margin-top: 30px;
+}
+
+
+/* =========================================
+   7. PRACTICE SECTION
+========================================= */
+
+.practice-section {
+    background-color: var(--white);
+}
+
+
+/* =========================================
+   8. REFLECTION SECTION
+========================================= */
+
+.reflection-section {
+    background-color: #F7FBFF;
+}
+
+.reflection-content {
+    max-width: 850px;
+}
+
+.reflection-content p {
+    color: var(--muted);
+}
+
+
+/* =========================================
+   9. DOCUMENTATION SECTION
+========================================= */
+
+.documentation-section {
+    background-color: var(--white);
+}
+
+.documentation-gallery {
+    margin-top: 30px;
+}
+
+
+/* =========================================
+   10. FOOTER
+========================================= */
+
+footer {
+    background-color: var(--light-blue);
+
+    padding: 30px 8%;
+    text-align: center;
+
+    border-top: 1px solid var(--border);
+}
+
+footer p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+
+/* =========================================
+   11. RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 900px) {
+
+    header {
+        padding: 18px 5%;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px 20px;
+    }
+
+    section {
+        padding: 80px 7%;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .nav-links {
+        gap: 10px 15px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    section {
+        padding: 65px 7%;
+    }
+
+    section h2 {
+        font-size: 26px;
+    }
+
+    .home-section {
+        min-height: 75vh;
+    }
+
+    .home-content h1 {
+        font-size: 40px;
+    }
+
+    .home-description {
+        font-size: 15px;
+    }
+
+    .profile-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+    }
+
+    .profile-photo {
+        width: 180px;
+        height: 220px;
+    }
+
+}
