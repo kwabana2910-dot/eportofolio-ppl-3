@@ -1,356 +1,724 @@
 
-/* =========================================
-   1. GLOBAL SETTINGS
-========================================= */
-
 :root {
-    --primary: #A8D5F2;
-    --primary-dark: #659CC5;
-    --light-blue: #EFF7FD;
-    --soft-blue: #DCEFFC;
-
-    --white: #FFFFFF;
-    --text: #34495E;
-    --muted: #8193A5;
-    --border: #E3EDF5;
-
-    --shadow: 0 8px 25px rgba(90, 140, 180, 0.08);
+  --green-dark: #385b49;
+  --green-main: #668b72;
+  --green-soft: #e5eee5;
+  --green-pale: #f1f5ef;
+  --green-light: #f8faf6;
+  --text: #34443a;
+  --muted: #78847a;
+  --white: #ffffff;
+  --line: #dce6dc;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: var(--white);
-    color: var(--text);
-    line-height: 1.7;
+  font-family: "DM Sans", sans-serif;
+  background: var(--green-light);
+  color: var(--text);
+  line-height: 1.75;
 }
 
-
-/* =========================================
-   2. HEADER & NAVIGATION
-========================================= */
-
-header {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.96);
-
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-
-    padding: 18px 8%;
-    border-bottom: 1px solid var(--border);
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 25px;
+/* HERO */
+
+.hero {
+  min-height: 510px;
+  background: var(--green-soft);
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 90px 10%;
 }
 
-.logo {
-    text-decoration: none;
-    color: var(--primary-dark);
-
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 1px;
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 440px;
+  height: 440px;
+  border: 1px solid rgba(56, 91, 73, 0.14);
+  border-radius: 50%;
+  right: -100px;
+  bottom: -220px;
+  box-shadow:
+    0 0 0 35px rgba(56, 91, 73, 0.035),
+    0 0 0 70px rgba(56, 91, 73, 0.025);
 }
 
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-
-    list-style: none;
+.hero-inner {
+  max-width: 720px;
+  position: relative;
+  z-index: 1;
 }
 
-.nav-links a {
-    text-decoration: none;
-    color: var(--text);
-
-    font-size: 13px;
-    font-weight: 500;
-
-    transition: color 0.3s ease;
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--green-main);
+  margin-bottom: 17px;
 }
 
-.nav-links a:hover {
-    color: var(--primary-dark);
+.hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  line-height: 1.12;
+  color: var(--green-dark);
+  font-weight: 600;
 }
 
+.hero h1 span,
+.closing-section h2 span {
+  color: var(--green-main);
+}
 
-/* =========================================
-   3. GENERAL SECTION SETTINGS
-========================================= */
+.hero-description {
+  max-width: 570px;
+  margin-top: 25px;
+  color: #647267;
+  font-size: 1rem;
+}
 
-section {
-    padding: 100px 10%;
-    scroll-margin-top: 75px;
+.hero-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 32px;
+  padding: 12px 20px;
+  border: 1px solid var(--green-main);
+  color: var(--green-dark);
+  border-radius: 5px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: 0.25s;
+}
+
+.hero-link:hover {
+  background: var(--green-main);
+  color: white;
+}
+
+.hero-decoration {
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: rgba(56, 91, 73, 0.14);
+}
+
+/* NAVIGATION */
+
+.site-nav {
+  min-height: 65px;
+  padding: 0 10%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 35px;
+  background: white;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.site-nav a {
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: var(--green-dark);
+  transition: 0.2s;
+}
+
+.site-nav a:hover {
+  color: var(--green-main);
+}
+
+/* INTRO */
+
+.intro-section {
+  padding: 100px 10% 80px;
+  max-width: 1250px;
+  margin: auto;
 }
 
 .section-heading {
-    margin-bottom: 30px;
+  max-width: 680px;
 }
 
-.section-label {
-    color: var(--primary-dark);
-
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-
-    margin-bottom: 10px;
+.section-heading h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  line-height: 1.2;
+  color: var(--green-dark);
 }
 
-section h2 {
-    color: var(--text);
-    font-size: 32px;
-    font-weight: 700;
+.section-heading > p:last-child {
+  margin-top: 18px;
+  color: var(--muted);
+  max-width: 620px;
 }
 
-.section-description {
-    color: var(--muted);
-    max-width: 700px;
+.lesson-index {
+  margin-top: 45px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
 }
 
-
-/* =========================================
-   4. HOME SECTION
-========================================= */
-
-.home-section {
-    min-height: 85vh;
-
-    display: flex;
-    align-items: center;
-
-    background: linear-gradient(
-        120deg,
-        #EFF7FD 0%,
-        #FFFFFF 100%
-    );
+.lesson-index a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  transition: 0.25s;
 }
 
-.home-content {
-    max-width: 750px;
+.lesson-index a:hover {
+  border-color: var(--green-main);
+  transform: translateY(-4px);
 }
 
-.home-content h1 {
-    color: var(--text);
-
-    font-size: clamp(42px, 6vw, 68px);
-    line-height: 1.2;
-
-    margin-bottom: 20px;
+.lesson-index a > span:first-child {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  color: var(--green-main);
 }
 
-.home-description {
-    color: var(--muted);
-    font-size: 17px;
-
-    max-width: 650px;
+.lesson-index strong {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--green-dark);
 }
 
-
-/* =========================================
-   5. PROFILE SECTION
-========================================= */
-
-.profile-section {
-    background-color: var(--white);
+.lesson-index small {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--muted);
 }
 
-.profile-content {
-    display: flex;
-    align-items: center;
-    gap: 45px;
+.index-arrow {
+  margin-left: auto;
+  color: var(--green-main);
 }
 
-.profile-photo {
-    width: 220px;
-    height: 260px;
+/* LESSON SECTION */
 
-    flex-shrink: 0;
-
-    background-color: var(--light-blue);
-    border-radius: 15px;
-    overflow: hidden;
+.lesson-section {
+  max-width: 1250px;
+  margin: 0 auto 75px;
+  padding: 65px 7%;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  scroll-margin-top: 90px;
 }
 
-.profile-photo img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
+.alternate-section {
+  background: #f0f5ef;
 }
 
-.profile-description {
-    max-width: 600px;
+.lesson-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
+  padding-bottom: 35px;
+  border-bottom: 1px solid var(--line);
 }
 
-.profile-description h3 {
-    font-size: 24px;
-    margin-bottom: 12px;
+.lesson-number {
+  min-width: 75px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--green-soft);
+  color: var(--green-dark);
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  border-radius: 7px;
 }
 
-.profile-description p {
-    color: var(--muted);
+.lesson-title h2 {
+  font-family: "Playfair Display", serif;
+  color: var(--green-dark);
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  line-height: 1.25;
 }
 
-
-/* =========================================
-   6. LEARNING SECTION
-========================================= */
-
-.learning-section {
-    background-color: #F7FBFF;
+.lesson-title .eyebrow {
+  margin-bottom: 10px;
 }
 
-.content-list {
-    margin-top: 30px;
+.lesson-meta {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.82rem;
 }
 
+/* RESOURCE LINKS */
 
-/* =========================================
-   7. PRACTICE SECTION
-========================================= */
-
-.practice-section {
-    background-color: var(--white);
+.resource-area {
+  margin: 35px 0 55px;
+  padding: 25px;
+  background: var(--green-pale);
+  border: 1px solid var(--line);
+  border-radius: 8px;
 }
 
-
-/* =========================================
-   8. REFLECTION SECTION
-========================================= */
-
-.reflection-section {
-    background-color: #F7FBFF;
+.resource-heading {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
 }
 
-.reflection-content {
-    max-width: 850px;
+.resource-icon {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--green-soft);
+  color: var(--green-dark);
+  font-size: 1.2rem;
 }
 
-.reflection-content p {
-    color: var(--muted);
+.resource-heading strong {
+  color: var(--green-dark);
+  font-size: 0.95rem;
 }
 
-
-/* =========================================
-   9. DOCUMENTATION SECTION
-========================================= */
-
-.documentation-section {
-    background-color: var(--white);
+.resource-heading p {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-top: 2px;
 }
 
-.documentation-gallery {
-    margin-top: 30px;
+.resource-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
 }
 
-
-/* =========================================
-   10. FOOTER
-========================================= */
-
-footer {
-    background-color: var(--light-blue);
-
-    padding: 30px 8%;
-    text-align: center;
-
-    border-top: 1px solid var(--border);
+.resource-links a {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 18px 20px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  transition: 0.25s;
 }
 
-footer p {
-    color: var(--muted);
-    font-size: 13px;
+.resource-links a:hover {
+  border-color: var(--green-main);
+  transform: translateY(-3px);
 }
 
-
-/* =========================================
-   11. RESPONSIVE DESIGN
-========================================= */
-
-@media (max-width: 900px) {
-
-    header {
-        padding: 18px 5%;
-    }
-
-    .navbar {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .nav-links {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 12px 20px;
-    }
-
-    section {
-        padding: 80px 7%;
-    }
-
+.resource-label {
+  color: var(--green-main);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
 }
 
+.resource-links strong {
+  margin-top: 5px;
+  padding-right: 25px;
+  color: var(--green-dark);
+  font-size: 0.9rem;
+}
+
+.resource-arrow {
+  position: absolute;
+  right: 18px;
+  bottom: 17px;
+  color: var(--green-main);
+}
+
+/* ANALYSIS CONTENT */
+
+.analysis-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.analysis-block {
+  display: grid;
+  grid-template-columns: 55px 1fr;
+  gap: 20px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.analysis-block:first-child {
+  padding-top: 0;
+}
+
+.block-number {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--green-soft);
+  color: var(--green-dark);
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.analysis-block h3 {
+  margin-bottom: 15px;
+  font-family: "Playfair Display", serif;
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--green-dark);
+}
+
+.analysis-block p {
+  margin-bottom: 13px;
+  font-size: 0.91rem;
+  line-height: 1.9;
+  color: #58665c;
+  text-align: justify;
+}
+
+.analysis-block p:last-child {
+  margin-bottom: 0;
+}
+
+/* LESSON FOOTER */
+
+.lesson-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding-top: 30px;
+}
+
+.lesson-footer span {
+  color: var(--green-main);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+}
+
+.lesson-footer a {
+  color: var(--green-dark);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.lesson-footer a:hover {
+  color: var(--green-main);
+}
+
+/* CLOSING */
+
+.closing-section {
+  padding: 100px 10%;
+  background: var(--green-soft);
+  text-align: center;
+}
+
+.closing-section h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.2rem, 5vw, 3.7rem);
+  line-height: 1.2;
+  color: var(--green-dark);
+}
+
+.closing-section > p:not(.eyebrow) {
+  max-width: 680px;
+  margin: 22px auto;
+  color: #647267;
+  font-size: 0.93rem;
+}
+
+.back-top {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 11px 20px;
+  border: 1px solid var(--green-main);
+  border-radius: 5px;
+  color: var(--green-dark);
+  font-size: 0.83rem;
+  font-weight: 700;
+  transition: 0.25s;
+}
+
+.back-top:hover {
+  background: var(--green-main);
+  color: white;
+}
+
+/* FOOTER */
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 10%;
+  background: var(--green-dark);
+  color: white;
+  font-size: 0.75rem;
+}
+
+.site-footer p {
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+.site-footer span {
+  color: #d1dfd2;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+  .hero {
+    padding: 80px 7%;
+  }
+
+  .hero-decoration {
+    display: none;
+  }
+
+  .site-nav {
+    padding: 0 7%;
+  }
+
+  .intro-section {
+    padding: 75px 7%;
+  }
+
+  .lesson-index {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-section {
+    margin: 0 15px 45px;
+    padding: 45px 6%;
+  }
+}
 
 @media (max-width: 600px) {
+  .hero {
+    min-height: 450px;
+  }
 
-    .logo {
-        font-size: 18px;
-    }
+  .hero h1 {
+    font-size: 2.8rem;
+  }
 
-    .nav-links {
-        gap: 10px 15px;
-    }
+  .site-nav {
+    justify-content: center;
+    gap: 25px;
+  }
 
-    .nav-links a {
-        font-size: 11px;
-    }
+  .site-nav a {
+    font-size: 0.76rem;
+  }
 
-    section {
-        padding: 65px 7%;
-    }
+  .lesson-header {
+    flex-direction: column;
+    gap: 18px;
+  }
 
-    section h2 {
-        font-size: 26px;
-    }
+  .lesson-number {
+    min-width: 55px;
+    height: 55px;
+    font-size: 1.5rem;
+  }
 
-    .home-section {
-        min-height: 75vh;
-    }
+  .resource-links {
+    grid-template-columns: 1fr;
+  }
 
-    .home-content h1 {
-        font-size: 40px;
-    }
+  .analysis-block {
+    grid-template-columns: 35px 1fr;
+    gap: 12px;
+  }
 
-    .home-description {
-        font-size: 15px;
-    }
+  .analysis-block h3 {
+    font-size: 1.2rem;
+  }
 
-    .profile-content {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 25px;
-    }
+  .analysis-block p {
+    font-size: 0.86rem;
+    text-align: left;
+  }
 
-    .profile-photo {
-        width: 180px;
-        height: 220px;
-    }
+  .lesson-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 
+  .site-footer {
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+  }
+}
+
+/* IDENTITY SECTION */
+
+.identity-section {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 55px 10% 15px;
+}
+
+.identity-card {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 30px 35px;
+  box-shadow: 0 8px 25px rgba(56, 91, 73, 0.04);
+}
+
+.identity-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--green-main);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 25px;
+}
+
+.identity-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--green-main);
+  border-radius: 50%;
+}
+
+.identity-content {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.identity-avatar {
+  width: 85px;
+  height: 85px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--green-soft);
+  color: var(--green-dark);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.identity-role {
+  color: var(--green-main);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  margin-bottom: 5px;
+}
+
+.identity-info h2 {
+  color: var(--green-dark);
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  line-height: 1.3;
+}
+
+.identity-program {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
+.identity-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 30px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+
+.identity-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.identity-detail span {
+  color: var(--muted);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.identity-detail strong {
+  color: var(--green-dark);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .identity-section {
+    padding: 35px 15px 10px;
+  }
+
+  .identity-card {
+    padding: 25px 20px;
+  }
+
+  .identity-content {
+    gap: 15px;
+  }
+
+  .identity-avatar {
+    width: 65px;
+    height: 65px;
+    font-size: 1.4rem;
+  }
+
+  .identity-info h2 {
+    font-size: 1.35rem;
+  }
+
+  .identity-role {
+    font-size: 0.57rem;
+  }
+
+  .identity-details {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
 }
